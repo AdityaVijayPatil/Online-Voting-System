@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./newlogin.css">
+    <link rel="icon" href="../public/image.png" type="image/x-icon">
+    <title>New Registration</title>
+</head>
+<body>
+    <div class="wrapper">
+        <form id="registrationForm" method="POST" action="./register.php">
+          <h2>New Registration</h2>
+          <div class="input-field">
+            <input type="text" id="name" name="name" required>
+            <label>Enter your name (as per Aadhaar card)</label>
+          </div>
+          <div class="input-field">
+            <input type="text" id="aadhaarNumber" name="aadhaarNumber" required>
+            <label>Aadhaar card number</label>
+          </div>
+          <div class="input-field">
+            <input type="date" id="dob" name="dob" required>
+            <label>Date of Birth</label>
+          </div>
+          <div class="input-field">
+            <input type="number" id="mobileNumber" name="mobileNumber" required>
+            <label>Mobile number</label>
+          </div>
+          <div class="input-field">
+            <input type="password" id="password" name="password" required>
+            <label>Enter your password</label>
+          </div>
+          <br>
+          <button type="submit" class="button">Register</button>
+          <br>
+          <a href="../index.html">Home</a>
+          <div class="register">
+            <p>Registration Status? <a href="./userstatus.php">login</a></p>
+          </div>
+        </form>
+      </div>
+      <script>
+          // Ensure Aadhaar number input only accepts numbers
+          document.getElementById('aadhaarNumber').addEventListener('input', function(event) {
+              // Remove any non-numeric characters
+              this.value = this.value.replace(/\D/g, '');
+          });
+      </script>
+</body>
+</html>

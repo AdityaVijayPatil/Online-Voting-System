@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Election Results</title>
+    <link rel="stylesheet" href="./electionresult.css">
+    <link rel="icon" href="../public/image.png" type="image/x-icon">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Congratulations to the Winner!</h1>
+        <h2 id="winnerName"></h2>
+
+        <div class="results-section">
+            <div class="chart-section">
+                <h3>Vote Distribution (Bar Chart)</h3>
+                <canvas id="votesChart"></canvas>
+            </div>
+            <div class="table-section">
+                <h3>Election Results</h3>
+                <table id="resultsTable">
+                    <thead>
+                        <tr>
+                            <th>Candidate Logo</th>
+                            <th>Candidate Name</th>
+                            <th>Votes Secured</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Rows will be populated by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+            <div class="chart-section">
+                <h3>Vote Distribution (Pie Chart)</h3>
+                <canvas id="votesPieChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            fetch('fetch_results.php')
+                .then(response => response.json())
+                .then(data => {
+                    const candidates = data;
+
+                    // Determine the winner
+                    const winner = candidates.reduce((max, candidate) => candidate.votes > max.votes ? candidate : max, candidates[0]);
+                    document.getElementById('winnerName').textContent = winner.name;
+
+                    // Populate the table
+                    const tableBody = document.querySelector('#resultsTable tbody');
+                    candidates.forEach(candidate => {
+                        const row = document.createElement('tr');
+                        row.innerHTML = `
+                            <td><img src="${candidate.logo}" alt="${candidate.name} Logo" class="candidate-logo"></td>
+                            <td>${candidate.name}</td>
+                            <td>${candidate.votes}</td>
+                        `;
+                        tableBody.appendChild(row);
+                    });
+
+                    // Create the bar chart
+                    const barCtx = document.getElementById('votesChart').getContext('2d');
+                    const votesChart = new Chart(barCtx, {
+                        type: 'bar',
+                        data: {
+                            labels: candidates.map(candidate => candidate.name),
+                            datasets: [{
+                                label: 'Votes',
+                                data: candidates.map(candidate => candidate.votes),
+                                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                                borderColor: 'rgba(75, 192, 192, 1)',
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            scales: {
+                                y: {
+                                    beginAtZero: true
+                                }
+                            }
+                        }
+                    });
+
+                    // Create the pie chart
+                    const pieCtx = document.getElementById('votesPieChart').getContext('2d');
+                    const votesPieChart = new Chart(pieCtx, {
+                        type: 'pie',
+                        data: {
+                            labels: candidates.map(candidate => candidate.name),
+                            datasets: [{
+                                data: candidates.map(candidate => candidate.votes),
+                                backgroundColor: [
+                                    'rgba(255, 99, 132, 0.2)',
+                                    'rgba(54, 162, 235, 0.2)',
+                                    'rgba(255, 206, 86, 0.2)',
+                                    'rgba(75, 192, 192, 0.2)'
+                                ],
+                                borderColor: [
+                                    'rgba(255, 99, 132, 1)',
+                                    'rgba(54, 162, 235, 1)',
+                                    'rgba(255, 206, 86, 1)',
+                                    'rgba(75, 192, 192, 1)'
+                                ],
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            plugins: {
+                                legend: {
+                                    position: 'top',
+                                },
+                                tooltip: {
+                                    callbacks: {
+                                        label: function(context) {
+                                            const label = context.label || '';
+                                            const value = context.raw;
+                                            const percentage = ((value / candidates.reduce((a, b) => a + b.votes, 0)) * 100).toFixed(2);
+                                            return `${label}: ${value} votes (${percentage}%)`;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    });
+                })
+                .catch(error => console.error('Error fetching election results:', error));
+        });
+    </script>
+</body>
+</html>

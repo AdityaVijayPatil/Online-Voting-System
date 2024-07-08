@@ -1,0 +1,32 @@
+Xampp server error
+
+1. open cmd
+2. netstat -ano | findstr 3306
+3. taskkill /PID 10960
+4. taskkill /F /PID 10960
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Aditya Vijay Patil
+B.Tech IT 2025 NMIMS University
+
+linkedin :- https://www.linkedin.com/in/aditya-patil-792407285/
+
+Github :- https://github.com/AdityaVijayPatil
+
+Mobile no :- 8788365633
+
+Email :- aadityapatil2428@gmail.com

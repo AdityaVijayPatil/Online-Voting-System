@@ -1,0 +1,71 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+.container {
+  background-color: white;
+  height: 230px;
+  width: 500px;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-top: 50px;
+}
+h1 {
+  color: #333;
+}
+.form-group {
+  margin-bottom: 15px;
+}
+.form-group input {
+  width: 95%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.form-group button {
+  background-color: #28a745;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.form-group button:hover {
+  background-color: #218838;
+}
+table {
+  width: 100%;
+  margin-top: 20px;
+  background: #f4f4f4;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 10px;
+  background: #f4f4f4;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+th {
+  background-color: #f8f8f8;
+}
+.vote-button {
+  background-color: #007bff;
+  color: white;
+  height: 50px;
+  width: 100px;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+}
+.vote-button:hover {
+  background-color: #0056b3;
+}
+

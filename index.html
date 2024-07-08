@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./index.css">
+    <!-- Aditya Vijay Patil
+    B.Tech IT 2025 NMIMS University
+    linkedin :- https://www.linkedin.com/in/aditya-patil-792407285/
+    Github :- https://github.com/AdityaVijayPatil
+    Mobile no :- 8788365633
+    Email :- aadityapatil2428@gmail.com -->
+    <link rel="icon" href="./public/image.png" type="image/x-icon">
+    <title>Online Voting System</title>
+</head>
+<body>
+    <nav>
+        <div>
+            <img src="./public/logo1.png" alt="Logo">
+        </div>
+        <div>
+            <!-- <a href="/new_user/newlogin.php"><button>New Registration</button></a> -->
+            <button id="newregister"><center>New Registration</center></button>
+            <button id="admin"><center>Admin</center></button><br>
+            <!-- <a href="/admin/admin.html"><button>Admin</button></a> -->
+        </div>
+    </nav>
+    <h1 class="main-heading"><center>Welcome to Our Online Voting Platform</center></h1>
+    <div class="main-container">
+        <div class="main-image">
+            <img src="./public/indiamap.png" alt="Main Image">
+        </div>
+        <div class="main-text1">
+            <div class="main-text">
+                <h2 class="text1"><center>Empowering Democracy, One Click at a Time</center></h2>
+                <button class="button1" id="vote"><center><b>Vote</b></center></button><br>
+                <button class="button2" id="result"><center><b>Result</b></center></button>
+            </div>
+            <div class="text2"><center><p class="additional-text">Welcome to our secure and intuitive online voting platform, 
+                where your voice matters. 
+                With our user-friendly interface and robust security measures, 
+                you can participate 
+                in elections from the comfort of your own home.</p></center></div>
+        </div>
+    </div>
+    <div class="bottom-bar">
+        &copy; 2024 Aditya Vijay Patil. All Rights Reserved.
+    </div>
+    <script>
+        document.getElementById('result').addEventListener('click', function() {
+            window.location.href = './election/electionresult.html'; 
+        });
+        document.getElementById('vote').addEventListener('click', function() {
+            window.location.href = './new_user/userdashboard.php'; 
+        });
+        document.getElementById('admin').addEventListener('click', function() {
+            window.location.href = './admin/admin.php'; 
+        });
+        document.getElementById('newregister').addEventListener('click', function() {
+            window.location.href = './new_user/newlogin.html'; 
+        });
+
+        // Function to get the last part of the URL and display it
+        function displayLastPartOfURL() {
+            const url = window.location.href;
+            const parts = url.split('/');
+            const lastPart = parts[parts.length - 1].split('.')[0]; // Get the last part without the .html extension
+            document.title = "onlinevotingsystem" + lastPart.charAt(0).toUpperCase() + lastPart.slice(1);
+        }
+
+        displayLastPartOfURL();
+    </script>
+</body>
+</html>

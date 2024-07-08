@@ -1,0 +1,140 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #EFF2F7;
+    font-family: Arial, sans-serif;
+}
+nav {
+    background-color: #ffffff;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    padding: 10px 100px;
+    border-bottom: 1px solid #000000;
+}
+nav img {
+    height: 70px;
+    margin-right: 10px;
+}
+nav button {
+    background-color: #36C0F3;
+    color: #fff;
+    border: none;
+    font-size: 20px;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 10px;
+    margin-left: 20px;
+}
+nav button:hover {
+    background-color: #183e96;
+    box-shadow: 0px 0px 20px #04ff00;
+}
+
+
+.main-heading{
+    background-color: #EFF2F7;
+    color: #9E00FF;
+}
+
+
+.main-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 100px;
+}
+.main-text {
+    width: 100%;
+    height: 350px;
+    margin-right: 100px;
+    padding-top: 50px;
+    color: #EFF2F7;
+    background-color: #021666;
+    border-radius: 50px;
+}
+.main-text:hover{
+    box-shadow: 0px 0px 40px #eeff00;
+}
+.text2{
+    margin-left: 100px;
+    margin-top: 40px;
+    margin-right: 100px;
+    color: #000000;
+}
+.main-text1 {
+    width: 40%;
+    height: 500px;
+    padding: 100px;
+    color: #EFF2F7;
+    border-radius: 50px;
+}
+.main-text h2 {
+    margin-top: 0;
+    margin-bottom: 70px;
+}
+.main-text p {
+    margin-bottom: 10px;
+}
+.button1{
+    background-color: #FEE1F6;
+    color: #BB0084;
+    height: 20%;
+    border: none;
+    width: 75%;
+    font-size: 30px;
+    cursor: pointer;
+    border-radius: 25px;
+    margin-top: 30px;
+    display: block; /* Make button a block-level element */
+    margin: 0 auto; /* Center horizontally */
+}
+.button1:hover{
+    /* background-color: #B9D5E8;
+    color: #017BAD; */
+    box-shadow: 0px 0px 40px #ffffff;
+}
+.button2:hover{
+    /* background-color: #FEE1F6;
+    color: #BB0084; */
+    box-shadow: 0px 0px 40px #ffffff;
+}
+.button2{
+    background-color: #B9D5E8;
+    color: #017BAD;
+    border: none;
+    height: 20%;
+    width: 75%;
+    font-size: 30px;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 25px;
+    display: block; /* Make button a block-level element */
+    margin: 0 auto; /* Center horizontally */
+    margin-top: 30px;
+}
+.main-image {
+    width: 38%;
+    text-align: center;
+}
+.main-image img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.additional-text {
+    font-style: italic;
+    color: #000000;
+    margin-top: 20px;
+}
+.bottom-bar {
+    background-color: #073059;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
